@@ -103,14 +103,8 @@ def type(ctx):
 
 @cli.command(help="Copies speech to text results to the clipboard")
 @click.option("--notify", is_flag=True, default=True)
-@click.option(
-    "--terminate-phrase",
-    "terminate_phrases",
-    multiple=True,
-    type=str,
-    default=terminate_phrases,
-)
-def copy(terminate_phrases, notify):
+@click.pass_context
+def copy(ctx, notify):
     notify_send = None
     if notify:
         notify_send = easy_notifications()
@@ -120,7 +114,8 @@ def copy(terminate_phrases, notify):
                 notify_send(title="typr copied text", message=text.strip())
             pyperclip.copy(text.strip())
     except HeardTerminatePhrase:
-        pass
+        if notify and notify_send is not None:
+            notify_send(title="typer exiting", message="👋👋👋👋")
 
 
 if __name__ == "__main__":
