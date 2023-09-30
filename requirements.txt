@@ -1,0 +1,10 @@
+SpeechRecognition
+PyAudio
+openai-whisper
+pysoundfile
+
+click
+
+python-libxdo-ng # requires libxdo3
+pyperclip
+py-notifier
