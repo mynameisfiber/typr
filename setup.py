@@ -8,7 +8,7 @@ with open("requirements.txt") as f:
 
 setup(
     name="typr",
-    version="0.1.0",
+    version="0.2.0",
     author="Micha Gorelick",
     author_email="mynameisfiber@gmail.com",
     url="https://github.com/mynameisfiber/typr",

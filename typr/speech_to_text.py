@@ -22,7 +22,7 @@ def speech_to_text(debug=False, terminate_phrases=None, **whisper_params):
             if debug:
                 print("Recognizing text")
                 start_time = time.time()
-            text = r.recognize_whisper(audio, **whisper_params)
+            text = r.recognize_faster_whisper(audio, **whisper_params)
             if debug:
                 print(f"Recognition too {time.time() - start_time:0.4f}s")
 

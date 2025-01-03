@@ -8,7 +8,9 @@ typr is a quick cli tool for speech to text using whisper. It has two modes, "ty
 
 ## Install
 
+
 ```bash
+$ sudo apt install portaudio19-dev libxdo3
 $ pip install git+https://github.com/mynameisfiber/typr.git
 ```
 

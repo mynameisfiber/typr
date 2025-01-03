@@ -31,7 +31,7 @@ def easy_notifications():
     return _
 
 
-@click.group(context_settings=dict(show_default=True))
+@click.group(context_settings=dict(show_default=True, auto_envvar_prefix="TYPR"))
 @click.option(
     "--terminate-phrase",
     "terminate_phrases",
@@ -39,6 +39,7 @@ def easy_notifications():
     multiple=True,
     type=str,
     default=terminate_phrases,
+    show_envvar=True,
 )
 @click.option("--debug", default=False, is_flag=True)
 @click.option(
@@ -46,17 +47,21 @@ def easy_notifications():
     help="Recognition language, ie 'english' or 'chinese'. Leave empty for auto-detect.",
     type=str,
     default=None,
+    show_envvar=True,
 )
 @click.option(
     "--model",
     default="base",
-    help="Model type to use. See https://github.com/openai/whisper#available-models-and-languages",
+    help="Model type to use. See https://pypi.org/project/faster-whisper/",
+    show_default=True,
+    show_envvar=True,
 )
 @click.option(
     "--prompt",
     default=None,
     type=str,
     help="Optional text to provide as a prompt for the first window. This can be used to provide, or 'prompt-engineer' a context for transcription, e.g. custom vocabularies, proper nouns, gender agreement.",
+    show_envvar=True,
 )
 @click.pass_context
 def cli(ctx, model, terminate_phrases, language, prompt, debug):

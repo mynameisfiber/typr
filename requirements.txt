@@ -1,6 +1,7 @@
-SpeechRecognition
+#SpeechRecognition
+SpeechRecognition @ git+https://github.com/Uberi/speech_recognition.git
 PyAudio
-openai-whisper
+faster-whisper
 pysoundfile
 
 click
